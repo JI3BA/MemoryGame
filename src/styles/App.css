@@ -1,0 +1,101 @@
+#root{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper{
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playing-field{
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: repeat(2, 150px);
+    grid-row-gap: 10px;
+}
+
+.playing-card{
+    position: relative;
+    height: 150px;
+    width: 130px;
+    cursor: pointer;
+}
+
+
+.playing-card__back{
+    position: absolute;
+    height: 150px;
+    width: 130px;
+    background-color: teal;
+    border-radius: 5px;
+    transition: background-color 1s;
+    z-index: 1;
+}
+
+.playing-card__back--active{
+    background-color: white;
+    transition: background-color 1s;
+    z-index: 0;
+}
+
+.playing-card__image{
+    position: absolute;
+    top: 15px;
+    width: 130px;
+    height: 150px;
+    transform: scale(-1,1);
+    transition: transform 1s;
+    z-index: 0;
+}
+
+.playing-card__image--active{
+    transform: scale(1);
+    transition: transform 1s ease;
+    z-index: 1;
+}
+
+.btn-retry{
+    padding: 10px 20px;
+    border-radius: 2px;
+    border: 2px solid teal;
+    background-color: white;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.btn-retry:hover{
+    border: 2px solid rgb(255, 136, 0);
+    background-color: teal;
+    color: white;
+    transition: all 1s;
+}
+
+.btn-retry:active{
+    box-shadow: 2px 2px teal;
+    transition: box-shadow 200ms;
+}
+
+.playing-card__back--opened{
+    opacity: 0;
+    border: 2px solid teal;
+    transition: boeder 2s;
+    z-index: 2;
+}
+
+.playing-card__image--opened{
+    transform: scale(1);
+    z-index: -1
+}
+
