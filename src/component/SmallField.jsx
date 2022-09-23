@@ -4,7 +4,7 @@ import mercedes from '../img/Mercedes.svg'
 import volkswagen from '../img/Volkswagen.svg'
 import honda from '../img/Honda.svg'
 
-
+//Hi everyone
 const cards = [
     {id: 1, path: bmw},
     {id: 2, path: mercedes},
