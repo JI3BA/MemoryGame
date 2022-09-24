@@ -3,8 +3,8 @@ import bmw from '../img/BMW.svg'
 import mercedes from '../img/Mercedes.svg'
 import volkswagen from '../img/Volkswagen.svg'
 import honda from '../img/Honda.svg'
+import Timer from "./timer/Timer";
 
-//Hi everyone
 const cards = [
     {id: 1, path: bmw},
     {id: 2, path: mercedes},
@@ -62,22 +62,25 @@ const SmallField = () => {
   const handleClick = (e) => {
     if(move === 0){
       if(!e.target.nextElementSibling.classList.contains('playing-card__image--opened')){
-      e.target.classList.add('playing-card__back--active')
-      e.target.nextElementSibling.classList.add('playing-card__image--active')
-      setFirstCard(e.target.nextSibling)
-      setMove(move + 1)
+        e.target.classList.add('playing-card__back--active')
+        e.target.nextElementSibling.classList.add('playing-card__image--active')
+        setFirstCard(e.target.nextSibling)
+        setMove(move + 1)
       }
     }else if(move === 1){
-      if(!e.target.nextElementSibling.classList.contains('playing-card__image--opened')){
-      e.target.classList.add('playing-card__back--active')
-      e.target.nextElementSibling.classList.add('playing-card__image--active')
-      setSecondCard(e.target.nextSibling)
-      setMove(move + 1)
+      if(e.target.classList.contains('playing-card__image--active')){
+        return
+      }else if(!e.target.classList.contains('playing-card__image--opened')){
+        e.target.classList.add('playing-card__back--active')
+        e.target.nextElementSibling.classList.add('playing-card__image--active')
+        setSecondCard(e.target.nextSibling)
+        setMove(move + 1)
       }
     }
   }
     return(
         <div className='wrapper'>
+            <Timer />
             <div className='playing-field'>
             {cardContainer.map((item, index) => 
                 <div className='playing-card'
