@@ -20,9 +20,9 @@
 
 .playing-field{
     display: grid;
-    grid-template-columns: repeat(4, 150px);
+    grid-template-columns: repeat(4, 130px);
     grid-template-rows: repeat(2, 150px);
-    grid-row-gap: 10px;
+    grid-gap: 20px;
 }
 
 .playing-card{
