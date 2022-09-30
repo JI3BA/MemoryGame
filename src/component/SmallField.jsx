@@ -19,6 +19,8 @@ const SmallField = () => {
   const [cardContainer, setCardContainer] = useState([])
   const [duplicate, setDuplicate] = useState(0)
 
+  const [active, setActive] = useState(false);
+
   useEffect(() => {
     setCardContainer([...cards, ...cards].sort(() => 0.5 - Math.random()))
   }, [])
@@ -27,16 +29,20 @@ const SmallField = () => {
     if(move === 2){
       if(firstCard.id === secondCard.id){
         setDuplicate(duplicate + 1)
-        setFirstCard(firstCard.classList.add('playing-card__image--opened'), firstCard.classList.remove('playing-card__image--active'), firstCard.previousElementSibling.classList.add('playing-card__back--opened'))
-        setSecondCard(secondCard.classList.add('playing-card__image--opened'), secondCard.classList.remove('playing-card__image--active'), secondCard.previousElementSibling.classList.add('playing-card__back--opened'))   
+        setFirstCard(firstCard.classList.add('playing-card__image--opened'), 
+                    firstCard.classList.remove('playing-card__image--active'),
+                    firstCard.previousElementSibling.classList.add('playing-card__back--opened'))
+        setSecondCard(secondCard.classList.add('playing-card__image--opened'),
+                      secondCard.classList.remove('playing-card__image--active'),
+                      secondCard.previousElementSibling.classList.add('playing-card__back--opened'))   
         setMove(0)
       }else if(firstCard.id !== secondCard.id){
         setTimeout(() => {
           setFirstCard(firstCard.previousElementSibling.classList.remove('playing-card__back--active'), 
-          firstCard.classList.remove('playing-card__image--active'))
+                       firstCard.classList.remove('playing-card__image--active'))
 
           setSecondCard(secondCard.previousElementSibling.classList.remove('playing-card__back--active'),
-          secondCard.classList.remove('playing-card__image--active'))
+                        secondCard.classList.remove('playing-card__image--active'))
 
           setMove(0)
         }, 1000)
@@ -44,11 +50,10 @@ const SmallField = () => {
       }
       
     }
-    setTimeout(() => {
-        if(duplicate === 4){
-            alert('You win!')
-        }
-    }, 1000)
+
+    if(duplicate === 4){
+        setActive(false)
+    }
   }, [move, firstCard, secondCard, duplicate])
 
 
@@ -66,6 +71,9 @@ const SmallField = () => {
         e.target.nextElementSibling.classList.add('playing-card__image--active')
         setFirstCard(e.target.nextSibling)
         setMove(move + 1)
+        if(!active){
+          setActive(true)
+        }
       }
     }else if(move === 1){
       if(e.target.classList.contains('playing-card__image--active')){
@@ -80,7 +88,7 @@ const SmallField = () => {
   }
     return(
         <div className='wrapper'>
-            <Timer />
+            <Timer active={active}/>
             <div className='playing-field'>
             {cardContainer.map((item, index) => 
                 <div className='playing-card'

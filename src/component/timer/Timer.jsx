@@ -1,15 +1,14 @@
 import React , { useState, useEffect } from "react";
 import './Timer.css'
 
-const Timer = () => {
+const Timer = ({active}) => {
     const [time, setTime] = useState(0);
-    const [active, setActive] = useState(false);
     
     useEffect(() => {
         let interval;
         if (active) {
             interval = setInterval(() => {
-                setTime((prevTime) => prevTime + 10);
+                setTime((prev) => prev + 10);
             }, 10);
         }else if(!active) {
             clearInterval(interval);
