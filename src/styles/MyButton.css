@@ -1,0 +1,9 @@
+.button{
+    max-width: 100px;
+    width: 100%;
+    max-height: 100px;
+    height: 100%;
+    padding: 10px;
+    border: 2px solid teal;
+    border-radius: 2px;
+}

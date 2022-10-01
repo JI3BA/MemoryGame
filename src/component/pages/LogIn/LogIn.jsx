@@ -1,17 +1,19 @@
 import React from "react";
+import MyButton from "../../MyButton";
+import MyInput from "../../MyInput";
 import './LogIn.css'
 
 const LogIn = () => {
     return (
         <div className="container">
             <div className="login-container">
-                <input type="text" placeholder="Login" className="login-input"/>
+                <MyInput />
                 <div className="login-buttons-container">
-                    <button className="login-button"></button>
-                    <button className="login-button"></button>
-                    <button className="login-button"></button>
+                    <MyButton>Easy</MyButton>
+                    <MyButton>Average</MyButton>
+                    <MyButton>Hard</MyButton>
                 </div>
-                <button className="login-button"></button>
+                <MyButton>Create</MyButton>
             </div>
         </div>
     )

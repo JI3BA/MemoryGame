@@ -87,6 +87,7 @@ const SmallField = () => {
     }
   }
     return(
+      <div className="container">
         <div className='wrapper'>
             <Timer active={active}/>
             <div className='playing-field'>
@@ -104,6 +105,7 @@ const SmallField = () => {
             </div>
             <button className='btn-retry' onClick={refreshField}>Retry</button>
         </div>
+      </div>
     )
 }
 
