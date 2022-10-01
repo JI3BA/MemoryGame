@@ -3,7 +3,7 @@ import '../styles/MyInput.css'
 
 const MyInput = () => {
     return (
-        <input type="text" className="input" placeholder="Login"/>
+        <input type="text" className="input" placeholder="Login" maxLength={15}/>
     )
 }
 

@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
 .input{
-    max-width: 400px;
-    width: 100%;
+    width: 400px;
+    height: 40px;
     padding: 10px 15px;
     outline: none;
     border: 2px solid teal;
-    font-size: 20px;
+    font-family: Montserrat, sans-serif;
+    font-size: 30px;
+    color: rgb(80, 79, 79);
 }
