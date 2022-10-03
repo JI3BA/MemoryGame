@@ -3,7 +3,7 @@ import '../styles/MyButton.css'
 
 const MyButton = ({children}) => {
     return (
-        <button className="button">{children}</button>
+        <input type='button' className="button" value={children} />
     )
 }
 

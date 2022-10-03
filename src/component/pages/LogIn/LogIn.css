@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -14,7 +16,7 @@
 
 .login-container{
     width: 500px;
-    height: 220px;
+    height: 280px;
     background-color: transparent;
     border: 2px solid rgb(202, 100, 16);
     border-radius: 10px;
@@ -22,6 +24,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+
+.login-level-container{
+    height: 50px;
+}
+
+.login-level{
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 40px;
+    color: #ffffff;
 }
 
 .login-buttons-container{
