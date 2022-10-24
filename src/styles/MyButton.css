@@ -20,14 +20,9 @@
     transition: all 500ms;
 }
 
-.button:active{
-    border: 5px solid rgb(0, 255, 0);
-    background-color: transparent;
-    color: #ffffff;
-}
-
 .button--active{
     border: 5px solid rgb(0, 255, 0);
     background-color: transparent;
     color: #ffffff;
+    transition: all 500ms;
 }

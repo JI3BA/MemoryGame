@@ -4,6 +4,7 @@ import mercedes from '../img/Mercedes.svg'
 import volkswagen from '../img/Volkswagen.svg'
 import honda from '../img/Honda.svg'
 import Timer from "./timer/Timer";
+import '../styles/Field.css'
 
 const cards = [
     {id: 1, path: bmw},
