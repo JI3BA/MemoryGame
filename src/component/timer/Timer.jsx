@@ -17,10 +17,12 @@ const Timer = ({active}) => {
     }, [active]);
 
     return(
-        <div className="timer-container">
-            <p className="timer timer-minutes">{("0" + Math.floor((time / 60000) % 60)).slice(-2)}<span>:</span></p>
-            <p className="timer timer-seconds">{("0" + Math.floor((time / 1000) % 60)).slice(-2)}<span>:</span></p>
-            <p className="timer timer-mseconds">{("0" + ((time / 10) % 100)).slice(-2)}</p>
+        <div className="timer">
+            <div className="timer-container">
+                <p className="timer-time timer-minutes"><span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span><span>:</span></p>
+                <p className="timer-time timer-seconds"><span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span><span>:</span></p>
+                <p className="timer-time timer-mseconds"><span>{("0" + ((time / 10) % 100)).slice(-2)}</span></p>
+            </div>
         </div>
     )
 }

@@ -1,6 +1,8 @@
 .container{
     display: flex;
     justify-content: center;
+    background-image: url('../img/bmwField.jpg');
+    background-size: cover;
 }
 
 .wrapper{
@@ -12,7 +14,21 @@
     align-items: center;
 }
 
+.playing-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 5px solid #ffffff;
+    border-radius: 20px;
+}
+
 .playing-field{
+    margin: 20px 0;
+    height: 320px;
     display: grid;
     grid-template-columns: repeat(4, 130px);
     grid-template-rows: repeat(2, 150px);
@@ -38,7 +54,7 @@
 }
 
 .playing-card__back--active{
-    background-color: white;
+    background-color: transparent ;
     transition: background-color 1s;
     z-index: 0;
 }
@@ -59,12 +75,15 @@
     z-index: 1;
 }
 
+.btn-container{
+    height: 50px;
+}
+
 .btn-retry{
     padding: 10px 20px;
     border-radius: 2px;
     border: 2px solid teal;
     background-color: white;
-    margin-top: 50px;
     cursor: pointer;
     transition: all 1s;
 }
@@ -90,5 +109,5 @@
 
 .playing-card__image--opened{
     transform: scale(1);
-    z-index: -1
+    z-index: 2;
 }

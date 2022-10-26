@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import MyButton from "../../MyButton";
 import './LogIn.css'
 
@@ -9,6 +10,9 @@ const LogIn = () => {
     const [changeValue, setChangeValue] = useState('')
     const [nickDirty, setNickDirty] = useState(false)
     const [errorNick, setErrorNick] = useState('Введите правильно своё имя!')
+    const dispatch = useDispatch()
+    const getNickName = useSelector(state => state.name)
+    const getLevel = useSelector(state => state.level)
     
     const nameHandler = (e) => {
         setChangeValue(e.target.value)
@@ -26,11 +30,19 @@ const LogIn = () => {
 
     const handlerSubmit = (e) => {
         e.preventDefault()
+        console.log(getLevel);
     }
 
     useEffect(() => {
         if((level === 'Easy' || level === 'Average' || level === 'Hard') && nickDirty === false){
             setFormValid(true)
+            if(getLevel !== ''){
+                dispatch({type: 'GET_LEVEL', payload: ''})
+                dispatch({type: 'GET_LEVEL', payload: level})
+            }
+            if(getLevel === ''){
+                dispatch({type: 'GET_LEVEL', payload: level})
+            }
         }else{
             setFormValid(false)
         }
@@ -47,14 +59,15 @@ const LogIn = () => {
                 e.target.nextElementSibling.classList.remove('button--active')
                 e.target.nextElementSibling.nextElementSibling.classList.remove('button--active')
             }
+            
         }else if(e.target.value === 'Average'){
             setLevel(e.target.value)
+            e.target.classList.add('button--active')
             if(e.target.previousElementSibling.classList.contains('button--active') || e.target.nextElementSibling.classList.contains('button--active')){
                 e.target.classList.add('button--active')
                 e.target.previousElementSibling.classList.remove('button--active')
                 e.target.nextElementSibling.classList.remove('button--active')
             }
-            e.target.classList.add('button--active')
         }else if(e.target.value === 'Hard'){
             setLevel(e.target.value)
             e.target.classList.add('button--active')

@@ -1,13 +1,28 @@
-.timer-container{
-    display: flex;
-    justify-content: center;
-    border: 2px solid teal;
-    border-radius: 10px;
-    max-width: 100px;
-    width: 100%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
 
 .timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
 
-    font-size: 20px;
+.timer-container{
+    width: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid teal;
+    border-radius: 10px;
+}
+
+span{
+    padding: 0 5px;
+}
+
+.timer-time{
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 50px;
+    width: 95px;
 }

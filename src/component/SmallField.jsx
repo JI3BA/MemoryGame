@@ -5,6 +5,7 @@ import volkswagen from '../img/Volkswagen.svg'
 import honda from '../img/Honda.svg'
 import Timer from "./timer/Timer";
 import '../styles/Field.css'
+import { useDispatch, useSelector } from "react-redux";
 
 const cards = [
     {id: 1, path: bmw},
@@ -19,11 +20,15 @@ const SmallField = () => {
   const [secondCard, setSecondCard] = useState(null)
   const [cardContainer, setCardContainer] = useState([])
   const [duplicate, setDuplicate] = useState(0)
+  const [active, setActive] = useState(false)
 
-  const [active, setActive] = useState(false);
+  const dispatch = useDispatch()
+  const level = useSelector(state => state.level)
+
 
   useEffect(() => {
     setCardContainer([...cards, ...cards].sort(() => 0.5 - Math.random()))
+    console.log(level);
   }, [])
 
   useEffect(() => {
@@ -90,21 +95,26 @@ const SmallField = () => {
     return(
       <div className="container">
         <div className='wrapper'>
+          <div className="playing-container">
             <Timer active={active}/>
-            <div className='playing-field'>
-            {cardContainer.map((item, index) => 
-                <div className='playing-card'
-                    key={index}
-                    onClick={handleClick}
-                >
-                <p id={item.id} className='playing-card__back' alt={index} />
-                <img src={item.path} id={item.id} className='playing-card__image' alt={index}/>
-                </div>
-                )
-            }
 
+            <div className='playing-field'>
+              {cardContainer.map((item, index) => 
+                  <div className='playing-card'
+                      key={index}
+                      onClick={handleClick}
+                  >
+                  <p id={item.id} className='playing-card__back' alt={index} />
+                  <img src={item.path} id={item.id} className='playing-card__image' alt={index}/>
+                  </div>
+                  )
+              }
             </div>
-            <button className='btn-retry' onClick={refreshField}>Retry</button>
+
+            <div className="btn-container">
+              <button className='btn-retry' onClick={refreshField}>Retry</button>
+            </div>
+          </div>
         </div>
       </div>
     )
