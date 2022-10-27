@@ -7,15 +7,15 @@ import './LogIn.css'
 const LogIn = () => {
     const [level,setLevel] = useState('Selection')
     const [formValid, setFormValid] = useState(false)
-    const [changeValue, setChangeValue] = useState('')
     const [nickDirty, setNickDirty] = useState(false)
     const [errorNick, setErrorNick] = useState('Введите правильно своё имя!')
+    
     const dispatch = useDispatch()
     const getNickName = useSelector(state => state.name)
     const getLevel = useSelector(state => state.level)
     
     const nameHandler = (e) => {
-        setChangeValue(e.target.value)
+        dispatch({type: 'GET_NAME', payload: e.target.value})
     }
 
     const blurHandler = (e) => {
@@ -31,22 +31,17 @@ const LogIn = () => {
     const handlerSubmit = (e) => {
         e.preventDefault()
         console.log(getLevel);
+        console.log(getNickName);
     }
 
     useEffect(() => {
         if((level === 'Easy' || level === 'Average' || level === 'Hard') && nickDirty === false){
-            setFormValid(true)
-            if(getLevel !== ''){
-                dispatch({type: 'GET_LEVEL', payload: ''})
-                dispatch({type: 'GET_LEVEL', payload: level})
-            }
-            if(getLevel === ''){
-                dispatch({type: 'GET_LEVEL', payload: level})
-            }
+            setFormValid(true)   
         }else{
             setFormValid(false)
         }
-    }, [level, nickDirty])
+        dispatch({type: 'GET_LEVEL', payload: level})
+    }, [level, nickDirty, dispatch])
 
     const changeLevel = (e) => {
         if(e.target.tagName !== 'BUTTON') return
@@ -59,7 +54,6 @@ const LogIn = () => {
                 e.target.nextElementSibling.classList.remove('button--active')
                 e.target.nextElementSibling.nextElementSibling.classList.remove('button--active')
             }
-            
         }else if(e.target.value === 'Average'){
             setLevel(e.target.value)
             e.target.classList.add('button--active')
@@ -86,7 +80,7 @@ const LogIn = () => {
             <form className="login-container">
                 <div className="input-container">
                     {nickDirty ? <div className='input--error'>{errorNick}</div> : <div style={{height: '50px'}}></div>}
-                    <input onBlur={e => blurHandler(e)} type="text" className="input" placeholder="Nickname" maxLength={15} value={changeValue} onChange={nameHandler}/>
+                    <input onBlur={e => blurHandler(e)} type="text" className="input" placeholder="Nickname" maxLength={15} value={getNickName} onChange={nameHandler}/>
                 </div>
                 <div className="login-level-container">
                     <p className="login-level">Game Level: {level}</p>

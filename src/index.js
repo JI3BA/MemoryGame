@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import {createStore} from 'redux'
 import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 const loginState = {
   name: '',
@@ -16,10 +17,10 @@ const reducer = (state = loginState, action) => {
   switch(action.type){
 
       case GET_NAME: 
-        return {...state, name: state.name}
+        return {...state, name: action.payload}
 
       case GET_LEVEL: 
-        return {...state, level: state.level + action.payload}
+        return {...state, level: action.payload}
 
       default: 
         return state
@@ -27,7 +28,7 @@ const reducer = (state = loginState, action) => {
   }
 }
 
-const store = createStore(reducer)
+const store = createStore(reducer, composeWithDevTools())
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

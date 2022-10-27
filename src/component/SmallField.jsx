@@ -5,7 +5,7 @@ import volkswagen from '../img/Volkswagen.svg'
 import honda from '../img/Honda.svg'
 import Timer from "./timer/Timer";
 import '../styles/Field.css'
-import { useDispatch, useSelector } from "react-redux";
+import Modal from "./Modal/Modal";
 
 const cards = [
     {id: 1, path: bmw},
@@ -21,14 +21,11 @@ const SmallField = () => {
   const [cardContainer, setCardContainer] = useState([])
   const [duplicate, setDuplicate] = useState(0)
   const [active, setActive] = useState(false)
-
-  const dispatch = useDispatch()
-  const level = useSelector(state => state.level)
+  const [modal, setModal] = useState(false)
 
 
   useEffect(() => {
     setCardContainer([...cards, ...cards].sort(() => 0.5 - Math.random()))
-    console.log(level);
   }, [])
 
   useEffect(() => {
@@ -59,6 +56,7 @@ const SmallField = () => {
 
     if(duplicate === 4){
         setActive(false)
+        setModal(true)
     }
   }, [move, firstCard, secondCard, duplicate])
 
@@ -114,6 +112,7 @@ const SmallField = () => {
             <div className="btn-container">
               <button className='btn-retry' onClick={refreshField}>Retry</button>
             </div>
+            <Modal active={modal} setActive={setModal}/>
           </div>
         </div>
       </div>
