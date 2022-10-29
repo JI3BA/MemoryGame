@@ -26,4 +26,11 @@
     background-color: #ffffff;
     height: 200px;
     width: 500px;
+    transform: scale(0);
+    transition: 1s;
+}
+
+.modal-content.active{
+    transform: scale(1);
+    transition: 1s;
 }

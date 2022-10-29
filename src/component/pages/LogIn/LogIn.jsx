@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import MyButton from "../../MyButton";
 import './LogIn.css'
 
@@ -9,10 +10,13 @@ const LogIn = () => {
     const [formValid, setFormValid] = useState(false)
     const [nickDirty, setNickDirty] = useState(false)
     const [errorNick, setErrorNick] = useState('Введите правильно своё имя!')
-    
+    const navigate = useNavigate()
+
     const dispatch = useDispatch()
-    const getNickName = useSelector(state => state.name)
-    const getLevel = useSelector(state => state.level)
+    const getNickName = useSelector(state => state.logIn.name)
+    const getLevel = useSelector(state => state.logIn.level)
+    const isAuth = useSelector(state => state.auth)
+    const store = useSelector(state => state.logIn)
     
     const nameHandler = (e) => {
         dispatch({type: 'GET_NAME', payload: e.target.value})
@@ -30,13 +34,16 @@ const LogIn = () => {
 
     const handlerSubmit = (e) => {
         e.preventDefault()
+        dispatch({type: 'ADD_AUTH', payload: false})
+        navigate('/field')
         console.log(getLevel);
         console.log(getNickName);
+        console.log(store);
     }
 
     useEffect(() => {
         if((level === 'Easy' || level === 'Average' || level === 'Hard') && nickDirty === false){
-            setFormValid(true)   
+            setFormValid(true) 
         }else{
             setFormValid(false)
         }

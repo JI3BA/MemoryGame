@@ -21,7 +21,7 @@ const SmallField = () => {
   const [cardContainer, setCardContainer] = useState([])
   const [duplicate, setDuplicate] = useState(0)
   const [active, setActive] = useState(false)
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(true)
 
 
   useEffect(() => {
