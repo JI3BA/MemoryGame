@@ -8,7 +8,7 @@ export const authReducer = (state = authState, action) => {
   switch(action.type){
 
       case ADD_AUTH: 
-        return {...state, name: action.payload}
+        return {...state, auth: action.payload}
 
       default: 
         return state

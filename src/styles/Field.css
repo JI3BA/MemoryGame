@@ -79,7 +79,7 @@
     height: 50px;
 }
 
-.btn-retry{
+.btn{
     padding: 10px 20px;
     border-radius: 2px;
     border: 2px solid teal;
@@ -88,14 +88,14 @@
     transition: all 1s;
 }
 
-.btn-retry:hover{
+.btn:hover{
     border: 2px solid rgb(255, 136, 0);
     background-color: teal;
     color: white;
     transition: all 1s;
 }
 
-.btn-retry:active{
+.btn:active{
     box-shadow: 2px 2px teal;
     transition: box-shadow 200ms;
 }

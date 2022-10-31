@@ -1,0 +1,21 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btn-change{
+    height: 40px;
+    margin-left: 20px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}

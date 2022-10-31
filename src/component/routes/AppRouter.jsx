@@ -5,10 +5,9 @@ import { publicRoutes, privateRoutes } from '../routes/Routes';
 
 const AppRouter = () => {
     const isAuth = useSelector(state => state.auth)
-
     return (
         <Router>
-            {isAuth ? 
+            {isAuth.auth ? 
                     <Routes>
                         {privateRoutes.map((route, index) => 
                             <Route path={route.path} element={route.element} key={index}/>

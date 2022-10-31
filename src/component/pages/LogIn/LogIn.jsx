@@ -6,7 +6,6 @@ import MyButton from "../../MyButton";
 import './LogIn.css'
 
 const LogIn = () => {
-    const [level,setLevel] = useState('Selection')
     const [formValid, setFormValid] = useState(false)
     const [nickDirty, setNickDirty] = useState(false)
     const [errorNick, setErrorNick] = useState('Введите правильно своё имя!')
@@ -15,8 +14,6 @@ const LogIn = () => {
     const dispatch = useDispatch()
     const getNickName = useSelector(state => state.logIn.name)
     const getLevel = useSelector(state => state.logIn.level)
-    const isAuth = useSelector(state => state.auth)
-    const store = useSelector(state => state.logIn)
     
     const nameHandler = (e) => {
         dispatch({type: 'GET_NAME', payload: e.target.value})
@@ -32,29 +29,36 @@ const LogIn = () => {
         }
     }
 
+    const addUsers = () => {
+        const users = {
+            name: getNickName,
+            level: getLevel,
+            time: null
+        }
+
+        dispatch({type: "ADD_USER", payload: users})
+    }
+
     const handlerSubmit = (e) => {
         e.preventDefault()
-        dispatch({type: 'ADD_AUTH', payload: false})
+        dispatch({type: 'ADD_AUTH', payload: true})
+        addUsers()
         navigate('/field')
-        console.log(getLevel);
-        console.log(getNickName);
-        console.log(store);
     }
 
     useEffect(() => {
-        if((level === 'Easy' || level === 'Average' || level === 'Hard') && nickDirty === false){
+        if((getLevel === 'Easy' || getLevel === 'Average' || getLevel === 'Hard') && nickDirty === false){
             setFormValid(true) 
         }else{
             setFormValid(false)
         }
-        dispatch({type: 'GET_LEVEL', payload: level})
-    }, [level, nickDirty, dispatch])
+    }, [getLevel, nickDirty, dispatch])
 
     const changeLevel = (e) => {
         if(e.target.tagName !== 'BUTTON') return
 
         if(e.target.value === 'Easy'){
-            setLevel(e.target.value)
+            dispatch({type: 'GET_LEVEL', payload: e.target.value})
             e.target.classList.add('button--active')
             if(e.target.nextElementSibling.classList.contains('button--active') || e.target.nextElementSibling.nextElementSibling.classList.contains('button--active')){
                 e.target.classList.add('button--active')
@@ -62,7 +66,7 @@ const LogIn = () => {
                 e.target.nextElementSibling.nextElementSibling.classList.remove('button--active')
             }
         }else if(e.target.value === 'Average'){
-            setLevel(e.target.value)
+            dispatch({type: 'GET_LEVEL', payload: e.target.value})
             e.target.classList.add('button--active')
             if(e.target.previousElementSibling.classList.contains('button--active') || e.target.nextElementSibling.classList.contains('button--active')){
                 e.target.classList.add('button--active')
@@ -70,7 +74,7 @@ const LogIn = () => {
                 e.target.nextElementSibling.classList.remove('button--active')
             }
         }else if(e.target.value === 'Hard'){
-            setLevel(e.target.value)
+            dispatch({type: 'GET_LEVEL', payload: e.target.value})
             e.target.classList.add('button--active')
             if(e.target.previousElementSibling.classList.contains('button--active') || e.target.previousElementSibling.previousElementSibling.classList.contains('button--active')){
                 e.target.classList.add('button--active')
@@ -87,10 +91,10 @@ const LogIn = () => {
             <form className="login-container">
                 <div className="input-container">
                     {nickDirty ? <div className='input--error'>{errorNick}</div> : <div style={{height: '50px'}}></div>}
-                    <input onBlur={e => blurHandler(e)} type="text" className="input" placeholder="Nickname" maxLength={15} value={getNickName} onChange={nameHandler}/>
+                    <input onBlur={e => blurHandler(e)} type="text" className="input" placeholder="Name" maxLength={15} value={getNickName} onChange={nameHandler}/>
                 </div>
                 <div className="login-level-container">
-                    <p className="login-level">Game Level: {level}</p>
+                    <p className="login-level">Game Level: {getLevel}</p>
                 </div>
                 <div className="login-buttons-container" onClick={changeLevel}>
                     <MyButton>Easy</MyButton>
