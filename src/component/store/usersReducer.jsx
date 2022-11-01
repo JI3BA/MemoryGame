@@ -15,3 +15,5 @@ export const usersReducer = (state = usersState, action) => {
       
   }
 }
+
+export const addUsersAction = (payload) => ({type: ADD_USER, payload})

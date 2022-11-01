@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import MyButton from "../../MyButton";
 import './LogIn.css'
+import { addAuthAction } from "../../store/authReducer";
+import { addUsersAction } from "../../store/usersReducer";
+import { getLevelAction, getNameAction } from "../../store/logInReducer";
 
 const LogIn = () => {
     const [formValid, setFormValid] = useState(false)
@@ -16,7 +19,7 @@ const LogIn = () => {
     const getLevel = useSelector(state => state.logIn.level)
     
     const nameHandler = (e) => {
-        dispatch({type: 'GET_NAME', payload: e.target.value})
+        dispatch(getNameAction(e.target.value))
     }
 
     const blurHandler = (e) => {
@@ -33,15 +36,14 @@ const LogIn = () => {
         const users = {
             name: getNickName,
             level: getLevel,
-            time: null
         }
 
-        dispatch({type: "ADD_USER", payload: users})
+        dispatch(addUsersAction(users))
     }
 
     const handlerSubmit = (e) => {
         e.preventDefault()
-        dispatch({type: 'ADD_AUTH', payload: true})
+        dispatch(addAuthAction(true))
         addUsers()
         navigate('/field')
     }
@@ -58,7 +60,7 @@ const LogIn = () => {
         if(e.target.tagName !== 'BUTTON') return
 
         if(e.target.value === 'Easy'){
-            dispatch({type: 'GET_LEVEL', payload: e.target.value})
+            dispatch(getLevelAction(e.target.value))
             e.target.classList.add('button--active')
             if(e.target.nextElementSibling.classList.contains('button--active') || e.target.nextElementSibling.nextElementSibling.classList.contains('button--active')){
                 e.target.classList.add('button--active')
@@ -66,7 +68,7 @@ const LogIn = () => {
                 e.target.nextElementSibling.nextElementSibling.classList.remove('button--active')
             }
         }else if(e.target.value === 'Average'){
-            dispatch({type: 'GET_LEVEL', payload: e.target.value})
+            dispatch(getLevelAction(e.target.value))
             e.target.classList.add('button--active')
             if(e.target.previousElementSibling.classList.contains('button--active') || e.target.nextElementSibling.classList.contains('button--active')){
                 e.target.classList.add('button--active')
@@ -74,7 +76,7 @@ const LogIn = () => {
                 e.target.nextElementSibling.classList.remove('button--active')
             }
         }else if(e.target.value === 'Hard'){
-            dispatch({type: 'GET_LEVEL', payload: e.target.value})
+            dispatch(getLevelAction(e.target.value))
             e.target.classList.add('button--active')
             if(e.target.previousElementSibling.classList.contains('button--active') || e.target.previousElementSibling.previousElementSibling.classList.contains('button--active')){
                 e.target.classList.add('button--active')

@@ -25,3 +25,7 @@ export const timeReducer = (state = timeState, action) => {
       
   }
 }
+
+export const getMinuteAction = (payload) => ({type: GET_MIN, payload})
+export const getSecondAction = (payload) => ({type: GET_SEC, payload})
+export const getMsecondAction = (payload) => ({type: GET_MSEC, payload})

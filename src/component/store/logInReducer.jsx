@@ -20,3 +20,6 @@ export const logInReducer = (state = loginState, action) => {
       
   }
 }
+
+export const getNameAction = (payload) => ({type: GET_NAME, payload})
+export const getLevelAction = (payload) => ({type: GET_LEVEL, payload})

@@ -7,7 +7,6 @@ import Timer from "./timer/Timer";
 import '../styles/Field.css'
 import Modal from "./Modal/Modal";
 import Navbar from "./NavBar/Navbar";
-import { useDispatch, useSelector } from "react-redux";
 
 const cards = [
     {id: 1, path: bmw},
@@ -24,10 +23,6 @@ const SmallField = () => {
   const [duplicate, setDuplicate] = useState(0)
   const [active, setActive] = useState(false)
   const [modal, setModal] = useState(false)
-
-  const dispatch = useDispatch()
-  const getTime = useSelector(state => state.time)
-  const users = useSelector(state => state.users.time)
 
 
   useEffect(() => {
@@ -63,7 +58,6 @@ const SmallField = () => {
     if(duplicate === 4){
         setActive(false)
         setModal(true)
-        dispatch({type: "ADD_USER", payload: `${getTime.minute}:${getTime.second}:${getTime.msecond}`})
     }
   }, [move, firstCard, secondCard, duplicate])
 

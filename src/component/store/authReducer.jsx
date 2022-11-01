@@ -15,3 +15,5 @@ export const authReducer = (state = authState, action) => {
       
   }
 }
+
+export const addAuthAction = (payload) => ({type: ADD_AUTH, payload})

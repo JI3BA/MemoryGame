@@ -1,6 +1,7 @@
 import React , { useState, useEffect } from "react";
 import './Timer.css'
 import { useDispatch } from "react-redux";
+import { getMinuteAction, getMsecondAction, getSecondAction } from "../store/timeReducer";
 
 const Timer = ({active}) => {
     const [time, setTime] = useState(0);
@@ -20,9 +21,11 @@ const Timer = ({active}) => {
         }else if(!active) {
             clearInterval(interval);
         }
-        dispatch({type: 'GET_MIN', payload: min})
-        dispatch({type: 'GET_SEC', payload: sec})
-        dispatch({type: 'GET_MSEC', payload: msec})
+
+        dispatch(getMinuteAction(min))
+        dispatch(getSecondAction(sec))
+        dispatch(getMsecondAction(msec))
+        
         return () => clearInterval(interval);
 
         
