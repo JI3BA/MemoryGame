@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import MyButton from "../../MyButton";
 import './LogIn.css'
 import { addAuthAction } from "../../store/authReducer";
-import { addUsersAction } from "../../store/usersReducer";
 import { getLevelAction, getNameAction } from "../../store/logInReducer";
 
 const LogIn = () => {
@@ -32,19 +31,10 @@ const LogIn = () => {
         }
     }
 
-    const addUsers = () => {
-        const users = {
-            name: getNickName,
-            level: getLevel,
-        }
-
-        dispatch(addUsersAction(users))
-    }
 
     const handlerSubmit = (e) => {
         e.preventDefault()
         dispatch(addAuthAction(true))
-        addUsers()
         navigate('/field')
     }
 

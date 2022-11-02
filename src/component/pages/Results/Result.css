@@ -13,6 +13,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 800px;
+    width: 100%;
 }
 
 .result-top{
@@ -24,9 +26,37 @@
 }
 
 .result-table{
-    width: 500px;
-    height: 700px;
-    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-height: 700px;
+    height: auto;
+    background-color: rgba(0,0,0,0.7);
     border: 2px solid #ffffff;
     border-radius: 25px;
+}
+
+.result-user{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+    width: 95%;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.result-info{
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 20px;
+
 }

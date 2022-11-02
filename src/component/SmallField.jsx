@@ -7,6 +7,7 @@ import Timer from "./timer/Timer";
 import '../styles/Field.css'
 import Modal from "./Modal/Modal";
 import Navbar from "./NavBar/Navbar";
+import { useDispatch, useSelector } from "react-redux";
 
 const cards = [
     {id: 1, path: bmw},
