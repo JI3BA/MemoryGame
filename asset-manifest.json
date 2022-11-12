@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/MemoryGame/static/css/main.5fb5c6d3.css",
+    "main.js": "/MemoryGame/static/js/main.c1e37a34.js",
+    "static/media/bmwField.jpg": "/MemoryGame/static/media/bmwField.e39e1d64dcb5f7fc9f49.jpg",
+    "static/media/bmwResults.jpg": "/MemoryGame/static/media/bmwResults.9c7e69a98e8c7ea09f08.jpg",
+    "static/media/bmwFon.jpg": "/MemoryGame/static/media/bmwFon.63cedb90fbd81efb10a5.jpg",
+    "static/media/BMW.svg": "/MemoryGame/static/media/BMW.04097b65d401bb31012dbe974057d267.svg",
+    "static/media/Mercedes.svg": "/MemoryGame/static/media/Mercedes.a9024d7c20f697a449436ed0821d197e.svg",
+    "static/media/Honda.svg": "/MemoryGame/static/media/Honda.8b470bfdcde18008f4ba0e0330b4b93e.svg",
+    "static/media/Volvo.svg": "/MemoryGame/static/media/Volvo.3c3c7d52acfbb4b5d3535c492c56259f.svg",
+    "static/media/subaru.svg": "/MemoryGame/static/media/subaru.614d5eea44d218886ed5cb1b6cecaebe.svg",
+    "static/media/dodge.svg": "/MemoryGame/static/media/dodge.c7fc78f1dd8c17b8ad43c8153e551cc1.svg",
+    "static/media/SEAT.svg": "/MemoryGame/static/media/SEAT.22d3a8c21c0c5d31e4f36283abc87ec7.svg",
+    "static/media/toyota.svg": "/MemoryGame/static/media/toyota.d7775d34d7475f264e3818c2bc1fa78c.svg",
+    "static/media/Volkswagen.svg": "/MemoryGame/static/media/Volkswagen.b22125305ebc29f8ce3791207a5d0f2a.svg",
+    "index.html": "/MemoryGame/index.html",
+    "main.5fb5c6d3.css.map": "/MemoryGame/static/css/main.5fb5c6d3.css.map",
+    "main.c1e37a34.js.map": "/MemoryGame/static/js/main.c1e37a34.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fb5c6d3.css",
+    "static/js/main.c1e37a34.js"
+  ]
+}
