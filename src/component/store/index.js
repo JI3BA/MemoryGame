@@ -14,3 +14,4 @@ const rootReducer = combineReducers({
 })
 
 export const store = createStore(rootReducer, composeWithDevTools())
+export default rootReducer

@@ -31,8 +31,33 @@
     height: 320px;
     display: grid;
     grid-template-columns: repeat(4, 130px);
-    grid-template-rows: repeat(2, 150px);
     grid-gap: 20px;
+}
+
+.playing-container.easy{
+    height: 500px;
+}
+
+.playing-container.medium{
+    height: 620px;
+}
+
+.playing-container.hard{
+    width: 930px;
+    height: 600px;
+}
+
+.playing-field.easy{
+    height: 320px;
+}
+
+.playing-field.medium{
+    height: 480px;
+}
+
+.playing-field.hard{
+    height: 470px;
+    grid-template-columns: repeat(6, 130px);
 }
 
 .playing-card{

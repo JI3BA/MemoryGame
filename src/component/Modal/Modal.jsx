@@ -29,7 +29,7 @@ const Modal = ({active, setActive}) => {
         if(active === true){
             addUsers()
         }
-    }, [active,dispatch])
+    }, [active])
 
     const resultsWindow = () => {
         navigate('/results')

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Results = () => {
     const users = useSelector(state => state.users.users)
-
+    
     return(
         <div className="result">
             <Navbar />
@@ -14,8 +14,10 @@ const Results = () => {
                 <div className="result-table">
                     {users.map((item, index) => 
                         <div  key={index} className="result-user">
-                            <p className="result-info result-info-name">Name: {item.name}</p>
-                            <p className="result-info result-info-level">Level: {item.level}</p>
+                            <p className="result-info result-info-name">{item.name}</p>
+                            <p className="result-info result-info-level">Level: <span className={item.level === 'Easy' ? "level easy"
+                                                                                                : item.level === 'Average' ? 'level average'
+                                                                                                : item.level === 'Hard' ? 'level hard' : 'null'}>{item.level}</span></p>
                             <p className="result-info result-info-time">Time: {item.time}</p>
                         </div>
                     )}

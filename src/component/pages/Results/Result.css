@@ -6,6 +6,7 @@
     align-items: center;
     background-image: url('../../../img/bmwResults.jpg');
     background-size: cover;
+    overflow: hidden;
 }
 
 .result-container{
@@ -31,18 +32,25 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    max-height: 700px;
-    height: auto;
+    height: 700px;
+    min-width: 500px;
     background-color: rgba(0,0,0,0.7);
     border: 2px solid #ffffff;
     border-radius: 25px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.result-table::-webkit-scrollbar {
+    width: 0px;
 }
 
 .result-user{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
+    min-height: 50px;
     height: 50px;
     width: 95%;
     background: transparent;
@@ -59,4 +67,41 @@
     font-weight: 400;
     font-size: 20px;
 
+}
+
+.result-info-name{
+    max-width: 200px;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.result-info-level{
+    max-width: 200px;
+    width: 100%;
+}
+
+.level{
+    display: flex;
+    align-items: center;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.level.easy{
+    color: #15ff00;
+}
+
+.level.average{
+    color: #ff9900;
+}
+
+.level.hard{
+    color: #ff0000;
+}
+
+.result-info-time{
+    max-width: 150px;
+    width: 100%;
+    margin-right: 10px;
 }
