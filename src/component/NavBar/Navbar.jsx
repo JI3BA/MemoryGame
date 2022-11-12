@@ -7,6 +7,8 @@ const Navbar = () => {
 
     const logOutUser = () => {
         dispatch({type: 'ADD_AUTH', payload: false})
+        dispatch({type: 'GET_NAME', payload: ''})
+        dispatch({type: 'GET_LEVEL', payload: ''})
     }
 
     return (

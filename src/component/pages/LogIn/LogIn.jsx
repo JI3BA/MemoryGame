@@ -9,8 +9,8 @@ import { getLevelAction, getNameAction } from "../../store/logInReducer";
 
 const LogIn = () => {
     const [formValid, setFormValid] = useState(false)
-    const [nickDirty, setNickDirty] = useState(false)
-    const [errorNick, setErrorNick] = useState('Введите правильно своё имя!')
+    const [nickDirty, setNickDirty] = useState(true)
+    const [errorNick, setErrorNick] = useState('Enter NickName')
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
@@ -24,12 +24,14 @@ const LogIn = () => {
     const blurHandler = (e) => {
         if(e.target.value.length < 2){
             setNickDirty(true)
-            setErrorNick('Некорректное имя')
+            setErrorNick('Incorrect NickName')
         }else{
             setNickDirty(false)
             setErrorNick('')
         }
     }
+
+
 
 
     const handlerSubmit = (e) => {
@@ -83,7 +85,7 @@ const LogIn = () => {
             <form className="login-container">
                 <div className="input-container">
                     {nickDirty ? <div className='input--error'>{errorNick}</div> : <div style={{height: '50px'}}></div>}
-                    <input onBlur={e => blurHandler(e)} type="text" className="input" placeholder="Name" maxLength={15} value={getNickName} onChange={nameHandler}/>
+                    <input onBlur={e => blurHandler(e)} type="text" className="input" placeholder="NickName" maxLength={15} value={getNickName} onChange={nameHandler}/>
                 </div>
                 <div className="login-level-container">
                     <p className="login-level">Game Level: {getLevel}</p>
