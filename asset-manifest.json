@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MemoryGame/static/css/main.5fb5c6d3.css",
-    "main.js": "/MemoryGame/static/js/main.c1e37a34.js",
+    "main.js": "/MemoryGame/static/js/main.317a78a6.js",
     "static/media/bmwField.jpg": "/MemoryGame/static/media/bmwField.e39e1d64dcb5f7fc9f49.jpg",
     "static/media/bmwResults.jpg": "/MemoryGame/static/media/bmwResults.9c7e69a98e8c7ea09f08.jpg",
     "static/media/bmwFon.jpg": "/MemoryGame/static/media/bmwFon.63cedb90fbd81efb10a5.jpg",
@@ -16,10 +16,10 @@
     "static/media/Volkswagen.svg": "/MemoryGame/static/media/Volkswagen.b22125305ebc29f8ce3791207a5d0f2a.svg",
     "index.html": "/MemoryGame/index.html",
     "main.5fb5c6d3.css.map": "/MemoryGame/static/css/main.5fb5c6d3.css.map",
-    "main.c1e37a34.js.map": "/MemoryGame/static/js/main.c1e37a34.js.map"
+    "main.317a78a6.js.map": "/MemoryGame/static/js/main.317a78a6.js.map"
   },
   "entrypoints": [
     "static/css/main.5fb5c6d3.css",
-    "static/js/main.c1e37a34.js"
+    "static/js/main.317a78a6.js"
   ]
 }
