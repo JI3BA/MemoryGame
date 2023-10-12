@@ -1,7 +1,5 @@
 # Memory Game Project
 
-**Challenge your memory and concentration with our interactive Memory Game!**
-
 ## Overview
 
 The Memory Game project is a web-based game that tests your memory and concentration skills. Players can choose from three different difficulty levels:
